@@ -784,7 +784,7 @@ function chart(rows){const now=Date.now(),from=now-24*3600e3;let R=rows.filter(r
   ser.forEach(([c],k)=>{const d=pts.filter(p=>p.v[k]!=null).map((p,i)=>(i?"L":"M")+X(p.t).toFixed(1)+" "+Y(p.v[k]).toFixed(1)).join(" ");g+=`<path d="${d}" fill="none" stroke="${c}" stroke-width="${k==3?1.4:2.2}" ${k==3?'stroke-dasharray="4 3"':""} stroke-linejoin="round" stroke-linecap="round"/>`;const last=pts.filter(p=>p.v[k]!=null).pop();if(last)g+=`<circle cx="${X(last.t)}" cy="${Y(last.v[k])}" r="3" fill="${c}"/>`});
   $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperature chart">${g}</svg><div class="lb-aktime">Alaska time</div>`}
 // Live cameras. YouTube Live video IDs from Kevin, one per camera. Leave empty to hide the card.
-const CAMS={V:"",L:""};
+const CAMS={V:"j6_QREWMLws",L:""};
 (function(){const ids=Object.entries(CAMS);
   const label={V:"V Series",L:"L Series"};
   $("camPair").innerHTML=ids.map(([k,v])=>`<div class="lb-cam"><div class="lb-k">${label[k]}</div><div class="lb-vid${v?"":" lb-soon"}">${v?`<iframe src="https://www.youtube-nocookie.com/embed/${v}?autoplay=1&mute=1&playsinline=1&rel=0" title="${label[k]} live camera" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`:`<div class="lb-play"><svg viewBox="0 0 68 48" width="56" aria-hidden="true"><rect width="68" height="48" rx="12" fill="#F0B93F" opacity=".9"/><path d="M27 14l18 10-18 10z" fill="#141B3C"/></svg><span>Live stream coming soon</span></div>`}</div></div>`).join("");
