@@ -52,12 +52,12 @@ p.lede{color:var(--frost);max-width:46ch;margin:20px 0 0;line-height:1.45}
 p.lede + p.lede{margin-top:14px}
 
 /* hero */
-.hero{padding:0;min-height:calc(100svh - 56px);display:flex;flex-direction:column}
+.hero{padding:0;min-height:0;display:flex;flex-direction:column}
 .hero .photo{position:relative;height:32svh;min-height:200px;overflow:hidden}
 .hero .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .hero .photo::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(20,27,60,.15) 0%,var(--midnight) 98%)}
-.hero .copy{padding:8px var(--gut) 40px;max-width:1100px;margin:0 auto;width:100%}
+.hero .copy{padding:8px var(--gut) 20px;max-width:1100px;margin:0 auto;width:100%}
 .hero h1{font-size:clamp(52px,16vw,120px);margin-top:12px}
 .hero h1 span{color:var(--amber)}
 .hero h1.quote{margin-top:14px;max-width:none;line-height:1.04}
@@ -261,8 +261,10 @@ section + section.frame{border-top:none}
 .cmp{margin:16px 0 0;padding-left:20px;color:var(--frost);font-size:16px;line-height:1.5}
 .cmp li{margin-top:8px}
 .lb-c{grid-column:1 / -1}
-.lb-c .lb-stats{grid-template-columns:repeat(3,1fr)}
-.lb-c .lb-st .lb-num{font-size:34px}
+.lb-c .lb-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.lb-c .lb-st{min-width:0;padding:10px 6px 9px}
+.lb-c .lb-st .lb-num{font-size:clamp(17px,5.4vw,34px);white-space:nowrap}
+.lb-c .lb-st .lb-num small{font-size:.5em}
 
 
 /* fold long blocks on phones, zoom photos */
@@ -279,6 +281,7 @@ dialog#zoom img{max-width:100%;max-height:calc(100% - 70px);width:auto;height:au
 dialog#zoom p{margin:0;max-width:60ch;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--frost);text-align:center}
 dialog#zoom .zx{position:absolute;top:8px;right:8px;width:48px;height:48px;background:transparent;color:var(--ice);border:1px solid rgba(245,242,234,.4);font-size:26px;line-height:1;cursor:pointer}
 @media (max-width:719px){
+  #about .split > div + div{margin-top:40px}
   .fig img{aspect-ratio:4/3;object-fit:cover}
   p.lede{line-height:1.4}
 }
@@ -301,6 +304,7 @@ section[id]{scroll-margin-top:60px}
 }
 
 .nm{font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+p.lead{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(24px,6.4vw,32px);line-height:1.15;color:var(--amber);margin:24px 0 0;max-width:20ch}
 /* contact + footer */
 form{display:grid;gap:12px;margin-top:28px;max-width:420px}
 input{font:inherit;background:var(--deep);color:var(--ice);border:1px solid rgba(245,242,234,.3);padding:14px;min-height:48px;border-radius:0}
@@ -379,7 +383,6 @@ main:focus{outline:none}
     <div class="label">Fairbanks, Alaska · 64.8 degrees north</div>
     <div class="k" style="margin:14px 0 0"><span class="nb">N50 Qualified</span></div>
     <h1 class="quote"><span class="a">We do not seek what can survive north of the&nbsp;50th&nbsp;parallel.</span><span class="b"><i>We seek</i><i>what thrives.</i></span></h1>
-    <p class="sub">What works here,<br>works anywhere.</p>
     <div class="btns">
       <a class="btn solid" href="#live">See the test live</a>
       <a class="btn line" href="#qualified">What it means</a>
@@ -394,7 +397,7 @@ main:focus{outline:none}
       <div class="k">Who we are</div>
       <h2>Who we are and what we&nbsp;do.</h2>
       <p class="lede"><b class="nm">North 50 Building Systems</b> is a Fairbanks, Alaska company that tests where it counts: in real Interior Alaska winters. Our name comes from the 50th parallel. Our goal is simple. We are not looking for products that merely survive up here. We are looking for the ones that thrive.</p>
-      <p class="lede">What works here, works anywhere.</p>
+      <p class="lead">What works here,<br>works anywhere.</p>
       <div class="k" style="margin-top:40px">Our mission</div>
       <p class="lede" style="margin-top:0">To identify, test, certify, and commercialize high-performance glazing &amp; building systems that reliably perform in Alaska&rsquo;s real-world environment and to turn technical credibility into scalable, trusted solutions for the construction industry.</p>
       <div class="k" style="margin-top:40px">Our approach</div>
